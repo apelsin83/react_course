@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Arrow functions examples</title>
+</head>
+<body>
+<script>
+    const data =  [
+                      { name: "Tyrion Lannister", minutes: 166, seconds: 15, episodes: 28, family: "Lannister", url: "http://gameofthrones.wikia.com/wiki/Tyrion_Lannister" },
+                      { name: "Daenerys Targaryen", minutes: 127, seconds: 35, episodes: 25, family: "Targaryen", url: "http://gameofthrones.wikia.com/wiki/Daenerys_Targaryen"},
+                      { name: "Jon Snow", minutes: 126, seconds: 41, episodes: 24, family: "Night's Watch", url: "http://gameofthrones.wikia.com/wiki/Jon_Snow" },
+                      { name: "Arya Stark", minutes: 100, seconds: 11, episodes: 27, family: "Stark", url: "http://gameofthrones.wikia.com/wiki/Arya_Stark"},
+                      { name: "Eddard Stark", minutes: 94, seconds: 35, episodes: 9, family: "Stark", url: "http://gameofthrones.wikia.com/wiki/Eddard_Stark" },
+                      { name: "Catelyn Stark", minutes: 91, seconds: 14, episodes: 25, family: "Stark", url: "http://gameofthrones.wikia.com/wiki/Catelyn_Stark"},
+                      { name: "Cersei Lannister", minutes: 90, seconds: 2, episodes: 27, family: "Lannister", url: "http://gameofthrones.wikia.com/wiki/Cersei_Lannister" },
+                      { name: "Robb Stark", minutes: 89, seconds: 16, episodes: 22, family: "Stark", url: "http://gameofthrones.wikia.com/wiki/Robb_Stark"},
+                      { name: "Sansa Stark", minutes: 85, seconds: 42, episodes: 24, family: "Stark", url: "http://gameofthrones.wikia.com/wiki/Sansa_Stark" },
+                  ]
+
+          /*
+             We want to extract some of the data  to return this format
+
+             {
+               name     : "Jon Snow",
+               episodes : 24,
+               family   : "Night's Watch"
+             }
+
+          */
+
+        // /* Because we are returning an Object literal,
+        //   We need to wrap the {...data...} with a () so it won't be regarded as a function body... */
+        //   const extract = data.map( hero => ({
+        //   name    : hero.name,
+        //   episodes: hero.episodes,
+        //   family  : hero.family
+        // }));  //This will throw a SyntaxError...  wrap the returned Object literal with ()
+        // console.table(extract);
+
+        // /* Filter demo */
+        // const ages = [23,62,45,234,2,62,16,62,18];
+        // const at_least_21 = ages.filter(age => age >= 21);
+        // console.log(at_least_21);
+
+        // /* Filter the startks */
+        // const starkes = data.filter( hero => hero.family === "Stark" )
+        // console.table(starkes);
+
+        // /* chaining operations */
+        // const starkes = data
+        //                 .filter( hero => hero.family === "Stark" )
+        //                 .map( hero => ({
+        //                   name    : hero.name,
+        //                   episodes: hero.episodes
+        //                 }));
+        //
+        // console.table(starkes);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>let and const</title>
+  <script src="../utils/color_logger.js"></script>
+</head>
+  <body>
+      <script>
+        'use strict'
+
+        /* variables declared with 'var' are function scoped */
+        // var myScope = 'outside';
+        //
+        // function setWidth() {
+        //   var myScope = 'inside';
+        //   p.green('in:', myScope);
+        // }
+        // setWidth();
+        //
+        // p.blue('out:',myScope);
+        // p.magenta('window:',window.myScope);
+
+
+        // /* let and const are block scoped */
+        // var age = 32;
+        //
+        // if(age > 12) {
+        //
+        //   let dogYears = age * 7; //change to const or let
+        //   p.yellow('in block - dogYears ' , dogYears + ' dog years old!');
+        //
+        // }
+        //
+        // p.indigo('global - dogYears:',window.dogYears);
+        //
+
+        /* Duplicate variable definitions... */
+        var width = 100;
+        p.blue('1st width:',width);
+
+        /* this will *NOT* throw an Error... */
+        var width = 200;  //add 'var' to create a duplicate variable definition...
+        p.red('2nd width:',width);
+
+
+
+      </script>
+  </body>
+</html>

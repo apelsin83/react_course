@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>let and const</title>
+</head>
+<body>
+<script>
+      obj1 = {
+          internal: {}
+      };
+
+      Object.freeze(obj1);
+      obj1.internal.a = 'some value';
+
+      console.log('obj1.internal.a = ',obj1.internal.a); // -> 'some value'
+
+      // To make obj fully immutable, freeze each object in obj.
+      // To do so, we use this function.
+      function deepFreeze(obj) {
+
+            // Retrieve the property names defined on obj
+            var propNames = Object.getOwnPropertyNames(obj);
+
+            // Freeze properties before freezing self
+            propNames.forEach(function(key) {
+
+                  var value = obj[key];
+
+                  // Freeze value if it is an object
+                  if (typeof value == 'object' && value !== null)
+                    deepFreeze(value);
+
+            });
+
+            // Freeze self (no-op if already frozen)
+            return Object.freeze(obj);
+      }
+
+      obj2 = {
+          internal: {}
+      };
+
+      deepFreeze(obj2);
+      obj2.internal.a = 'another Value';
+      console.log('obj2.internal.a = ',obj2.internal.a); // -> undefined
+
+
+      // You can also use substack's |deep-freeze|
+          //  npm package here - https://www.npmjs.com/package/deep-freeze
+          //  Github src here - https://github.com/substack/deep-freeze/blob/master/index.js
+          //  cdn available here - https://wzrd.in/standalone/deep-freeze@latest
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Array .from() and .of()</title>
+</head>
+  <div class="roles">
+    <p>Tyrion Lannister</p>
+    <p>Daenerys Targaryen</p>
+    <p>Jon Snow</p>
+    <p>Arya Stark</p>
+    <p>Theon Greyjoy</p>
+    <p>Jaime Lannister</p>
+    <p>Joffrey Baratheon</p>
+    <p>Brienne of Tarth</p>
+  </div>
+<body>
+<script>
+   /*
+   roles is a NodeList */
+  const roles = document.querySelectorAll('.roles p');
+  console.log('roles:',roles);
+
+  // /* => Error... .map() exists on Array.prototype, not NodeList... */
+  // const names = roles.map( role => role.textContent);
+
+  // /* convert the roles NodeList to an Array*/
+  // const rolesArray = Array.from(roles)
+  // console.log(rolesArray);
+  // /* now we can use .map() and other Array methos to iterate over our data-set */
+  // const names = rolesArray.map( role => role.textContent);
+  // console.log(names);
+
+  // /* We can even do this in one go, using the Array.from() second map() func argument */
+  // const names = Array.from(roles, role => role.textContent);
+  // console.log(names);
+
+
+  // converting the arguments to an Array
+  // function sumAll() {
+  //   const nums = Array.from(arguments);
+  //   return nums.reduce((prev, next) => prev + next, 0);
+  // }
+  //
+  // const total = sumAll(2, 34, 23, 234, 234, 234234, 234234, 2342);
+  // console.log('total:',total);
+
+  // Array.of() will create an Array from all the values you'd pass to it... simple...
+  const ages = Array.of(12,4,23,62,34);
+  console.log(ages);
+
+</script>
+</body>
+</html>

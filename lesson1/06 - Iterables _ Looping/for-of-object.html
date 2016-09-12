@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Iterables & Looping</title>
+</head>
+<body>
+
+<script>
+  const Jon = {
+    name: "Jon Snow",
+    minutes: 126,
+    seconds: 41,
+    episodes: 24,
+    family: "Night's Watch",
+    url: "http://gameofthrones.wikia.com/wiki/Jon_Snow"
+  }
+  // Object is not *yet* iterable...
+  //------------------------------------------
+  // for (const prop of Jon) {
+  //   console.log(prop);
+  // }
+
+  // you can use for-of to loop over an Object.keys(obj) array...
+  //---------------------------------------------------------------
+  // for (const prop of Object.keys(Jon)) {
+  //   console.log(prop,':',Jon[prop]);
+  // }
+
+  // You can always simply use a for-in loop instead...
+  //------------------------------------------
+  // for (const prop in Jon) {
+  //   console.log(prop,':',Jon[prop]);
+  // }
+
+</script>
+</body>
+</html>

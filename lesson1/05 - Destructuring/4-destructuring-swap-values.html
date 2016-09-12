@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Destructuring in Action!</title>
+</head>
+<body>
+<script>
+  /* swap values between the two variables... */
+  let winner = 'Joffrey';
+  let looser = 'Tyrion';
+
+  // /* The long way to swap values... */
+  // console.log(`Before -\n winner: ${winner}\n looser: ${looser}\n`);
+  // let temp = winner;
+  // winner = looser;
+  // looser = temp;
+  // delete temp;
+  // console.log(`After -\n winner: ${winner}\n looser: ${looser}`);
+
+  /* The shorter way...*/
+  console.log(`Before -\n winner: ${winner}\n looser: ${looser}\n`);
+  [winner, looser] = [looser, winner];
+  console.log(`After -\n winner: ${winner}\n looser: ${looser}`);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>let and const</title>
+  <script src="../utils/color_logger.js"></script>
+</head>
+<body>
+<script>
+  // 'use strict';
+
+  /* duplicate variable definition */
+  let points = 50;
+  // let points = 75;   //this *WILL* throw an Error
+
+
+  // let winner = false;
+  //
+  // if(points > 40){
+  //    let winner = true;
+  //    p.green('local - winner:',winner);
+  // }
+  // p.magenta('ouside of the block - winner:',winner);
+  //
+
+
+  /* const primitive values are immutable */
+  //const key = 'abc123';
+  //key = 'abc1234' // Assignment to a constant will throw an Error
+
+
+  // /* Const complex types cannot be assigned but are *NOT* immutable... */
+  const person = {
+    name: 'Jon',
+    age: 26,
+    hobbie:{
+      old:'socker',
+      new:'TV'
+    }
+  }
+  person.age = 33;
+  p.red('person.age',person.age); // -> 33
+
+
+  /* To make an object immutable use the Object.freeze() method */
+  const Jon = Object.freeze(person);
+  Jon.age = 36;
+  p.green('Frozen Jon.age',Jon.age); // -> 33
+
+  Jon.hobbie.new = 'Baseball';
+  p.red('Frozen Jon.hobbie.new:',Jon.hobbie.new);
+
+</script>
+</body>
+</html>

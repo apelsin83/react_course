@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Iterables & Looping</title>
+</head>
+<body>
+
+  <p>Hi I'm paragraph 01</p>
+  <p>Hi I'm paragraph 02</p>
+  <p>Hi I'm paragraph 03</p>
+  <p>Hi I'm paragraph 04</p>
+  <p>Hi I'm paragraph 05</p>
+  <p>Hi I'm paragraph 06</p>
+  <p>Hi I'm paragraph 07</p>
+  <p>Hi I'm paragraph 08</p>
+  <p>Hi I'm paragraph 09</p>
+  <p>Hi I'm paragraph 10</p>
+
+<script>
+
+  const sansa = {
+    name: "Sansa Stark",
+    minutes: 85,
+    seconds: 42,
+    episodes: 24,
+    family: "Stark",
+    url: "http://gameofthrones.wikia.com/wiki/Sansa_Stark"
+  }
+
+  const roles = ['Tyrion', 'Daenerys', 'Jon', 'Arya', 'Theon', 'Sansa', 'Cersei', 'Varys'];
+
+  /* ------------------------------------------
+     for loop - not too elegant, less readable
+    ------------------------------------------ */
+  // for (let i = 0; i < roles.length; i++) {
+  //   if(roles[i] === 'Daenerys') {
+  //     continue //break
+  //   }
+  //   console.log( roles[i] );
+	// }
+
+  // /* ------------------------------------------
+  //    .forEach loop - more readable, but we cannot abort, we cannot skip - no 'break' or 'continue'
+  //   ------------------------------------------ */
+  // roles.forEach(function (role) {
+  //    console.log(role);
+  // })
+
+  /* ------------------------------------------
+     for-in loop
+    ------------------------------------------ */
+    /*looping over an Object*/
+    // for (const prop in sansa) {
+    //   console.log(sansa[prop]);
+    // }
+
+    // // /*looping over an Array with a for-in loop. Better to avoid it... */
+    // for (const index in roles) {
+    //   console.log(roles[index]);
+    // }
+
+      /* Monkey-patching the Array.prototype may come up in the loop */
+      Array.prototype.shuffle = function() {
+        var i = this.length, j, temp;
+        if ( i == 0 ) return this;
+        while ( --i ) {
+         j = Math.floor( Math.random() * ( i + 1 ) );
+         temp = this[i];
+         this[i] = this[j];
+         this[j] = temp;
+       }
+       return this;
+     };
+
+     /* Any property that for some reason is added dynamically may come up in the loop */
+     roles.season = 'Season 2';
+
+      roles.push('mashoo')
+    //  for (const index in roles) {
+    //    console.log(roles[index]);
+    //  }
+
+    /* ------------------------------------------
+       for-of loop - loops only on the Array elements,
+       you CAN abort or skip - using 'break' or 'continue'
+      ------------------------------------------ */
+      // for (const role of roles) {
+      //   // if(role === 'Daenerys') {
+      //   //   continue //break
+      //   // }
+      //   console.log(role);
+      // }
+
+       // How can we get the index of the item?
+       // loop over an ArrayIterator - roles.entries()
+       //------------------------------------------
+       // type in the console - const role = roles.entries()
+       // then - role.next()
+       //------------------------------------------
+      // for (const  role of roles.entries()) {
+      //   //console.log(role);
+      //   console.log( role[0],role[1] );
+      // }
+
+      // use Arrays destructuring to extract the values from the array...
+      //------------------------------------------
+      // for (const [i, role] of roles.entries()) {
+      //   console.log(`${role} is the ${i + 1} item`);
+      // }
+
+      // Pass any number of arguments and loop over the arguments object
+      //------------------------------------------
+      // function addUpNumbers() {
+      //   console.log(arguments);
+      //   // console.dir(arguments);
+      //   // console.dir([1,2,3]);
+      //
+      //   let total = 0;
+      //   for (const num of arguments) {
+      //     total += num;
+      //   }
+      //   console.log(total);
+      //   return total;
+      // }
+      //
+      // addUpNumbers(10,23,52,34,12,13,123);
+
+      // loop over a string
+      //------------------------------------------
+      // const bio = 'Daenerys is the only daughter and youngest child of King Aerys II Targaryen, the "Mad King", and his sister-wife, Rhaella';
+      // let total_spaces = 0;
+      // for (const char of bio) {
+      //   if(char === ' ') total_spaces++
+      // }
+      // console.log(total_spaces);
+
+      // loop over a DOM collections
+      //------------------------------------------
+      const ps = document.querySelectorAll('p');
+      for (const paragraph of ps) {
+        paragraph.addEventListener('click', function() {
+          console.log(this.textContent);
+        });
+      }
+
+</script>
+</body>
+</html>

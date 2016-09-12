@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Destructuring in Action!</title>
+</head>
+<body>
+<script>
+
+  /* Functions can return multiple values using an Object*/
+  function convertCurrency(amount) {
+    const converted = {
+      USD: amount * 0.76,
+      GPB: amount * 0.53,
+      AUD: amount * 1.01,
+      MEX: amount * 13.30
+    };
+    return converted;
+  }
+  // /*instead of access it this way*/
+  // const laptop_price = convertCurrency(2000);
+  // console.log(`laptop_price.USD: ${laptop_price.USD}`);
+  // console.log(`laptop_price.AUD: ${laptop_price.AUD}`);
+  // console.log(`laptop_price.GPB: ${laptop_price.GPB}`);
+ /* we can shorten our code using destructuring... */
+  const {USD,AUD,GPB} = convertCurrency(2000);
+  console.log(` USD: ${USD}\n AUD: ${AUD}\n GPB: ${GPB}`)
+
+
+
+  /* passing aguments as an object allows you to use this destructure syntax
+     you can place parameters in any order, and you can have default values*/
+  function tipCalc({ total = 100, tip = 0.15, tax = 0.13 } = {}) {
+    return total + (tip * total) + (tax * total);
+  }
+
+  const bill = tipCalc({ total: 200,tip: 0.20  });
+  console.log(`bill: ${bill}`);
+
+</script>
+</body>
+</html>

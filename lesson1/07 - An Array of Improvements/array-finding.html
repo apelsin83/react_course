@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Array Finding</title>
+</head>
+<body>
+<script>
+  /* eslint-disable */
+  const heros = [
+{ name: "Tyrion Lannister", minutes: 166, seconds: 15, episodes: 28, family: "Lannister", url: "http://gameofthrones.wikia.com/wiki/Tyrion_Lannister" },
+{ name: "Daenerys Targaryen", minutes: 127, seconds: 35, episodes: 25, family: "Targaryen", url: "http://gameofthrones.wikia.com/wiki/Daenerys_Targaryen"},
+{ name: "Jon Snow", minutes: 126, seconds: 41, episodes: 24, family: "Night's Watch", url: "http://gameofthrones.wikia.com/wiki/Jon_Snow" },
+{ name: "Arya Stark", minutes: 100, seconds: 11, episodes: 27, family: "Stark", url: "http://gameofthrones.wikia.com/wiki/Arya_Stark"},
+{ name: "Eddard Stark", minutes: 94, seconds: 35, episodes: 9, family: "Stark", url: "http://gameofthrones.wikia.com/wiki/Eddard_Stark" },
+{ name: "Catelyn Stark", minutes: 91, seconds: 14, episodes: 25, family: "Stark", url: "http://gameofthrones.wikia.com/wiki/Catelyn_Stark"},
+{ name: "Cersei Lannister", minutes: 90, seconds: 2, episodes: 27, family: "Lannister", url: "http://gameofthrones.wikia.com/wiki/Cersei_Lannister" },
+{ name: "Robb Stark", minutes: 89, seconds: 16, episodes: 22, family: "Stark", url: "http://gameofthrones.wikia.com/wiki/Robb_Stark"},
+{ name: "Sansa Stark", minutes: 85, seconds: 42, episodes: 24, family: "Stark", url: "http://gameofthrones.wikia.com/wiki/Sansa_Stark" },
+{ name: "Theon Greyjoy", minutes: 84, seconds: 11, episodes: 23, family: "Greyjoy", url: "http://gameofthrones.wikia.com/wiki/Theon_Greyjoy"},
+{ name: "Jorah Mormont", minutes: 72, seconds: 18, episodes: 24, family: "Targaryen", url: "http://gameofthrones.wikia.com/wiki/Jorah_Mormont" },
+{ name: "Jaime Lannister", minutes: 71, seconds: 25, episodes: 19, family: "Lannister", url: "http://gameofthrones.wikia.com/wiki/Jaime_Lannister"},
+{ name: "Samwell Tarly", minutes: 61, seconds: 48, episodes: 19, family: "Night's Watch", url: "http://gameofthrones.wikia.com/wiki/Samwell_Tarly" },
+{ name: "Petyr Baelish", minutes: 60, seconds: 0, episodes: 19, family: "Arryn", url: "http://gameofthrones.wikia.com/wiki/Petyr_Baelish"},
+{ name: "Bran Stark", minutes: 57, seconds: 56, episodes: 21, family: "Stark", url: "http://gameofthrones.wikia.com/wiki/Bran_Stark" },
+{ name: "Varys", minutes: 57, seconds: 17, episodes: 18, family: "Other", url: "http://gameofthrones.wikia.com/wiki/Varys"},
+{ name: "Joffrey Baratheon", minutes: 54, seconds: 22, episodes: 23, family: "Lannister", url: "http://gameofthrones.wikia.com/wiki/Joffrey_Baratheon" },
+{ name: "Tywin Lannister", minutes: 49, seconds: 39, episodes: 19, family: "Lannister", url: "http://gameofthrones.wikia.com/wiki/Tywin_Lannister"},
+{ name: "Davos Seaworth", minutes: 44, seconds: 0, episodes: 10, family: "Baratheon", url: "http://gameofthrones.wikia.com/wiki/Davos_Seaworth" },
+{ name: "Ygritte", minutes: 42, seconds: 55, episodes: 12, family: "Free Folk", url: "http://gameofthrones.wikia.com/wiki/Ygritte"},
+{ name: "Shae", minutes: 40, seconds: 45, episodes: 16, family: "Other", url: "http://gameofthrones.wikia.com/wiki/Shae" },
+{ name: "Brienne of Tarth", minutes: 39, seconds: 38, episodes: 14, family: "Other", url: "http://gameofthrones.wikia.com/wiki/Brienne_of_Tarth"},
+{ name: "Gendry", minutes: 39, seconds: 14, episodes: 17, family: "Baratheon", url: "http://gameofthrones.wikia.com/wiki/Gendry" },
+{ name: "Sandor Clegane", minutes: 39, seconds: 3, episodes: 21, family: "Other", url: "http://gameofthrones.wikia.com/wiki/Sandor_Clegane"},
+{ name: "Bronn", minutes: 36, seconds: 54, episodes: 16, family: "Other", url: "http://gameofthrones.wikia.com/wiki/Bronn" },
+{ name: "Stannis Baratheon", minutes: 36, seconds: 45, episodes: 12, family: "Baratheon", url: "http://gameofthrones.wikia.com/wiki/Stannis_Baratheon"},
+{ name: "Margaery Tyrell", minutes: 32, seconds: 51, episodes: 10, family: "Tyrell", url: "http://gameofthrones.wikia.com/wiki/Margaery_Tyrell" },
+{ name: "Talisa Maegyr", minutes: 32, seconds: 25, episodes: 12, family: "Stark", url: "http://gameofthrones.wikia.com/wiki/Talisa_Maegyr"},
+{ name: "Melisandre", minutes: 32, seconds: 22, episodes: 10, family: "Baratheon", url: "http://gameofthrones.wikia.com/wiki/Melisandre" },
+{ name: "Osha", minutes: 30, seconds: 53, episodes: 14, family: "Free Folk", url: "http://gameofthrones.wikia.com/wiki/Osha"},
+{ name: "Robert Baratheon", minutes: 29, seconds: 38, episodes: 7, family: "Baratheon", url: "http://gameofthrones.wikia.com/wiki/Robert_Baratheon" },
+{ name: "Maester Pycelle", minutes: 28, seconds: 38, episodes: 15, family: "Other", url: "http://gameofthrones.wikia.com/wiki/Pycelle"},
+{ name: "Khal Drogo", minutes: 27, seconds: 20, episodes: 10, family: "Targaryen", url: "http://gameofthrones.wikia.com/wiki/Khal_Drogo" },
+{ name: "Barristan Selmy", minutes: 25, seconds: 43, episodes: 13, family: "Targaryen", url: "http://gameofthrones.wikia.com/wiki/Barristan_Selmy"},
+{ name: "Renly Baratheon", minutes: 25, seconds: 26, episodes: 8, family: "Baratheon", url: "http://gameofthrones.wikia.com/wiki/Renly_Baratheon" },
+{ name: "Maester Luwin", minutes: 24, seconds: 22, episodes: 14, family: "Stark", url: "http://gameofthrones.wikia.com/wiki/Maester_Luwin"},
+{ name: "Jeor Mormont", minutes: 23, seconds: 42, episodes: 12, family: "Night's Watch", url: "http://gameofthrones.wikia.com/wiki/Jeor_Mormont" },
+{ name: "Ros", minutes: 22, seconds: 12, episodes: 15, family: "Other", url: "http://gameofthrones.wikia.com/wiki/Ros"},
+{ name: "Loras Tyrell", minutes: 21, seconds: 54, episodes: 11, family: "Tyrell", url: "http://gameofthrones.wikia.com/wiki/Loras_Tyrell" },
+{ name: "Viserys Targaryen", minutes: 20, seconds: 15, episodes: 5, family: "Targaryen", url: "http://gameofthrones.wikia.com/wiki/Viserys_Targaryen"},
+{ name: "Gilly", minutes: 18, seconds: 8, episodes: 9, family: "Other", url: "http://gameofthrones.wikia.com/wiki/Gilly" },
+{ name: "Rodrik Cassel", minutes: 16, seconds: 46, episodes: 12, family: "Stark", url: "http://gameofthrones.wikia.com/wiki/Rodrik_Cassel"},
+{ name: "Hot Pie", minutes: 15, seconds: 47, episodes: 10, family: "Other", url: "http://gameofthrones.wikia.com/wiki/Hot_Pie" },
+{ name: "Thoros of Myr", minutes: 15, seconds: 35, episodes: 6, family: "Other", url: "http://gameofthrones.wikia.com/wiki/Thoros_of_Myr"},
+{ name: "Olenna Tyrell", minutes: 14, seconds: 54, episodes: 5, family: "Tyrell", url: "http://gameofthrones.wikia.com/wiki/Olenna_Tyrell" },
+{ name: "Yoren", minutes: 13, seconds: 48, episodes: 7, family: "Night's Watch", url: "http://gameofthrones.wikia.com/wiki/Yoren"},
+{ name: "Ramsay Bolton", minutes: 13, seconds: 43, episodes: 6, family: "Bolton", url: "http://gameofthrones.wikia.com/wiki/Ramsay_Bolton" },
+{ name: "Roose Bolton", minutes: 13, seconds: 41, episodes: 11, family: "Bolton", url: "http://gameofthrones.wikia.com/wiki/Roose_Bolton"},
+{ name: "Edmure Tully", minutes: 13, seconds: 8, episodes: 5, family: "Tully", url: "http://gameofthrones.wikia.com/wiki/Edmure_Tully" },
+{ name: "Walder Frey", minutes: 12, seconds: 26, episodes: 3, family: "Frey", url: "http://gameofthrones.wikia.com/wiki/Walder_Frey"},
+{ name: "Brynden Tully", minutes: 12, seconds: 0, episodes: 5, family: "Tully", url: "http://gameofthrones.wikia.com/wiki/Brynden_Tully" },
+{ name: "Yara Greyjoy", minutes: 11, seconds: 50, episodes: 5, family: "Greyjoy", url: "http://gameofthrones.wikia.com/wiki/Yara_Greyjoy"},
+{ name: "Missandei", minutes: 11, seconds: 39, episodes: 8, family: "Targaryen", url: "http://gameofthrones.wikia.com/wiki/Missandei" },
+{ name: "Beric Dondarrion", minutes: 11, seconds: 7, episodes: 5, family: "Other", url: "http://gameofthrones.wikia.com/wiki/Beric_Dondarrion"},
+{ name: "Tormund Giantsbane", minutes: 10, seconds: 27, episodes: 7, family: "Free Folk", url: "http://gameofthrones.wikia.com/wiki/Tormund_Giantsbane" },
+{ name: "Daario Naharis", minutes: 10, seconds: 12, episodes: 3, family: "Targaryen", url: "http://gameofthrones.wikia.com/wiki/Daario_Naharis"},
+{ name: "Jaqen H'qhar", minutes: 8, seconds: 15, episodes: 7, family: "Other", url: "http://gameofthrones.wikia.com/wiki/Jaqen_H%27ghar" },
+{ name: "Balon Greyjoy", minutes: 7, seconds: 58, episodes: 3, family: "Greyjoy", url: "http://gameofthrones.wikia.com/wiki/Balon_Greyjoy"},
+{ name: "Qyburn", minutes: 7, seconds: 16, episodes: 4, family: "Other", url: "http://gameofthrones.wikia.com/wiki/Qyburn" },
+{ name: "Lysa Arryn", minutes: 7, seconds: 3, episodes: 4, family: "Arryn", url: "http://gameofthrones.wikia.com/wiki/Lysa_Arryn"},
+{ name: "Benjen Stark", minutes: 7, seconds: 0, episodes: 3, family: "Stark", url: "http://gameofthrones.wikia.com/wiki/Benjen_Stark" },
+{ name: "Maester Aemon", minutes: 6, seconds: 49, episodes: 4, family: "Night's Watch", url: "http://gameofthrones.wikia.com/wiki/Maester_Aemon"},
+{ name: "Mance Rayder", minutes: 6, seconds: 22, episodes: 3, family: "Free Folk", url: "http://gameofthrones.wikia.com/wiki/Mance_Rayder" },
+{ name: "Syrio Forel", minutes: 6, seconds: 15, episodes: 3, family: "Other", url: "http://gameofthrones.wikia.com/wiki/Syrio_Forel"},
+{ name: "Robin Arryn", minutes: 4, seconds: 37, episodes: 4, family: "Arryn", url: "http://gameofthrones.wikia.com/wiki/Robin_Arryn" }
+  ];
+
+  //get an item's index
+  const sansa_index = heros.findIndex(hero => hero.name === "Sansa Stark");
+  console.log('sansa_index:',sansa_index);
+
+  // get an item
+  const sansa = heros.find(hero => hero.name === "Sansa Stark");
+  console.log('sansa',sansa);
+
+  // get a few items
+  const starks = heros.filter(hero => hero.family === 'Stark')
+  console.log('starks:',starks);
+</script>
+</body>
+</html>

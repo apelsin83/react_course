@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The ...Spread Operator</title>
+</head>
+<body>
+<script>
+    /*Iterable - anything you can run iterate over with a for-of loop
+      Strings, Arrays, Maps, Sets, DOM nodes, arguments objects */
+
+   /* The spread operator takes every item
+      from an iterable and apply it to the containing element */
+  const featured = ['Deep Dish', 'Pepperoni', 'Hawaiian'];
+  const specialty = ['Meatzza', 'Spicy Mama', 'Margherita'];
+
+  // /* let's assume we want to combine these two arrays */
+  // const pizzas = featured.concat(specialty); //easy right?
+
+  /* but what if you want to put another element in the middle...? */
+  // let pizzas = [];
+  // pizzas = pizzas.concat(featured)
+  // pizzas.push('veg')
+  // pizzas = pizzas.concat(specialty); //kinda long hey?
+  // console.log(`pizzas: ${pizzas}`);
+
+  /* here is a more elegant way.*/
+  const pizzas = [...featured, 'veg', ...specialty];
+  // console.log(`pizzas: ${pizzas}`);
+
+  /* What about copying an Array? */
+  // const fridayPizzas  = pizzas; //this is not copying, it is referencing...
+  // fridayPizzas[0] = 'Neapolitan';
+  //
+  // console.log(`fridayPizzas[0]: ${fridayPizzas[0]}`);
+  // console.log(`pizzas[0]: ${pizzas[0]}`);//it modified the original array too...
+
+  /* Use the spread operator to copy an Array */
+  const fridayPizzas = [...pizzas];
+  fridayPizzas[0] = 'Neapolitan';
+  
+  console.log(`fridayPizzas[0]: ${fridayPizzas[0]}`);
+  console.log(`pizzas[0]: ${pizzas[0]}`);//it modified the original array too...
+
+
+</script>
+</body>
+</html>

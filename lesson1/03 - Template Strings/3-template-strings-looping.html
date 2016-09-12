@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <title>Template Strings!</title>
+    </head>
+    <body>
+        <script>
+            const heros =  [
+                              { name: "Tyrion Lannister", minutes: 166, seconds: 15, episodes: 28, family: "Lannister", url: "http://gameofthrones.wikia.com/wiki/Tyrion_Lannister" },
+                              { name: "Daenerys Targaryen", minutes: 127, seconds: 35, episodes: 25, family: "Targaryen", url: "http://gameofthrones.wikia.com/wiki/Daenerys_Targaryen"},
+                              { name: "Jon Snow", minutes: 126, seconds: 41, episodes: 24, family: "Night's Watch", url: "http://gameofthrones.wikia.com/wiki/Jon_Snow" },
+                              { name: "Arya Stark", minutes: 100, seconds: 11, episodes: 27, family: "Stark", url: "http://gameofthrones.wikia.com/wiki/Arya_Stark"},
+                              { name: "Eddard Stark", minutes: 94, seconds: 35, episodes: 9, family: "Stark", url: "http://gameofthrones.wikia.com/wiki/Eddard_Stark" },
+                              { name: "Catelyn Stark", minutes: 91, seconds: 14, episodes: 25, family: "Stark", url: "http://gameofthrones.wikia.com/wiki/Catelyn_Stark"},
+                              { name: "Cersei Lannister", minutes: 90, seconds: 2, episodes: 27, family: "Lannister", url: "http://gameofthrones.wikia.com/wiki/Cersei_Lannister" },
+                              { name: "Robb Stark", minutes: 89, seconds: 16, episodes: 22, family: "Stark", url: "http://gameofthrones.wikia.com/wiki/Robb_Stark"},
+                              { name: "Sansa Stark", minutes: 85, seconds: 42, episodes: 24, family: "Stark", url: "http://gameofthrones.wikia.com/wiki/Sansa_Stark" },
+                           ];
+
+              /* This is not very scalable... */
+              // const markup = `
+              //                <ul class="heros">
+              //                  <li>${heros[0].name} of house ${heros[0].family} plays in ${heros[0].episodes} episodes</li>
+              //                  <li>${heros[1].name} of house ${heros[1].family} plays in ${heros[1].episodes} episodes</li>
+              //                  <li>${heros[2].name} of house ${heros[2].family} plays in ${heros[2].episodes} episodes</li>
+              //                </ul>
+              //              `;
+
+              // /* we can loop over our collection like so... */
+              // const markup = `
+              //                <ul class="heros">
+              //                  ${
+              //                    heros.map(hero => `
+              //                    <li>
+              //                      ${hero.name}
+              //                      of house ${hero.family}
+              //                      plays in ${hero.episodes} episodes
+              //                    </li>`).join('')
+              //                  }
+              //                </ul>
+              //              `;
+              //
+              // document.body.innerHTML = markup;
+        </script>
+    </body>
+</html>

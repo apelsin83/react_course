@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Template Strings!</title>
+</head>
+<body>
+<script>
+
+      /* Let's assume that the *bio* property is optional... */
+      const hero =   {
+                          name: "Arya",
+                          house: "Stark",
+                          portrait: "http://images5.fanpop.com/image/photos/31000000/Arya-Stark-tv-female-characters-31019695-292-400.jpg",
+                          bio: "Arya started as a tomboy and grew up to be a deadly assasin",
+                          parents: [
+                              "Ned Stark",
+                              "Catelyn Tully"
+                          ],
+                          siblings: [
+                              "Bran Stark",
+                              "Sansa Stark",
+                              "Jon Snow",
+                              "Robb Stark",
+                              "Rickon Stark"
+                          ]
+                      }
+      /* We can externelise logic and call a function*/
+      function renderList(items) {
+        return `
+          <ul>
+            ${items.map(item => `<li>${item}</li>`).join('')}
+          </ul>
+        `;
+      }
+
+      const markup = `
+        <div class="hero">
+          <h2>${hero.name} of house ${hero.house}</h2>
+          <p>
+            ${hero.bio ? `<strong>Bio:</strong> ${hero.bio}` : ''}
+          </p>
+          <img src="${hero.portrait}" style="width:150px"/>
+          <h4>Parents:</h4>
+          ${renderList(hero.parents)}
+          ${hero.siblings ? `<h4>Siblings:</h4> ${renderList(hero.siblings)}` : ''}
+        </div>
+      `;
+
+      document.body.innerHTML = markup;
+
+</script>
+</body>
+</html>

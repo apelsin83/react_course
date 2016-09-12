@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Destructuring!</title>
+</head>
+<body>
+<script>
+  /*
+     Destructuring allows us to extract data from Arrays, Objects, Maps & Sets
+     reference - https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+  */
+
+  /*
+    Simple Example
+    Extract these keys from this object into these variables
+  */
+  // const person = {
+  //   first: 'Jon',
+  //   last: 'Snow',
+  //   origin: 'Winterfell',
+  //   twitter: '@LordSnow',
+  //   organization: "Night's Watch"
+  // }
+  //
+  // const { first, last, twitter } = person;
+  //
+  // console.log(` first name: ${first}\n last name: ${last}\n Twitter: ${twitter}`)
+
+
+  /*
+    Nested data Example
+  */
+  const jon = {
+    first: 'Jon',
+    last: 'Snow',
+    links: {
+      social: {
+        twitter: 'https://twitter.com/LordSnow',
+        instagram: 'https://www.instagram.com/jonsnowking/',
+      },
+      web: {
+        url: 'http://gameofthrones.wikia.com/wiki/Jon_Snow'
+      }
+    }
+  };
+
+  /* You use to have to specify the path for each and every variable... */
+    //  const tweet = jon.links.social.twitter;
+    //  const gram  = jon.links.social.instagram;
+
+  /* We can do it in one go, and also rename the variables like so */
+  // const { twitter: tweet, instagram: gram } = jon.links.social;
+  //
+  // console.log(` twitter: ${tweet}\n Instagram: ${gram}`)
+
+  /* We can set default values and assign only some of the keys... */
+  const settings = { width: 300, color: 'black' }  // height, fontSize - don't exist here...
+
+  const { width = 100, height = 100, color = 'blue', fontSize = 25} = settings;
+  
+  console.log(` width: ${width}\n height: ${height}\n color: ${color}\n fontSize: ${fontSize}`)
+
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>let and const real world</title>
+</head>
+<body>
+<script>
+
+  /* Declaring variables on the global window scope... */
+  var name = 'Gilly';
+  console.log(window.name);
+
+  // /* The old way of preventing variables from leaking to the global window scope
+  //    is to create a self exectuting function which creates a new function scope...  */
+  // (function(){
+  //
+  //   var king = 'Robb';
+  //   console.log('window.king: ',window.king);
+  //
+  // })()
+
+  // /* With let and const we don't need a self executing function any longer...
+  //    all we need to protect leaking is a block scope... */
+  // {
+  //   const soldier = 'Yoren'; //change to const...
+  //   console.log('global soldier: ',window.soldier);
+  //   console.log('local soldier: ', soldier);
+  // }
+
+  /* looping...  change the i from var to let */
+  for(let i = 0; i < 10; i++) { //
+    console.log(i);
+    setTimeout(function() {
+      console.log('The number is ' + i);
+    },1000);
+  }
+
+</script>
+</body>
+</html>

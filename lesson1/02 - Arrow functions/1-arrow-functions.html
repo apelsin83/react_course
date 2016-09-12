@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Arrow functions → → </title>
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
+    body{
+      font-family: 'Roboto', sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <h1>Arrow functions → </h1>
+  <ul>
+    <li>Shorter syntax</li>
+    <li>Implicit <strong>return</strong> statement</li>
+    <li>Does not re-bind the <strong>this</strong> value</li>
+  </ul>
+<script>
+  const names = ['Jaime', 'Tyrion', 'Cersei', 'Tywin', 'Joffrey'];
+
+  // /* Ordinary callback function */
+  // const fullNames = names.map(function(name) {
+  //   return name + ' Lannister';
+  // });
+  // console.log('fullNames: ',fullNames);
+  //
+  // /* Short Arrow function */
+  // const fullNames2 = names.map( (name) => {
+  //   return name + ' Lannister';
+  // });
+  // console.log('fullNames2: ',fullNames2);
+
+  // /* if only 1 parameter - () are not a must... */
+  // const fullNames3 = names.map( name => {
+  //   return name + ' Lannister';
+  // });
+  // console.log('fullNames3: ',fullNames3);
+
+  // /* You can drop the 'return' statement for one liners... */
+  // const fullNames4 = names.map(name => name + ' Lannister');
+  // console.log('fullNames4: ',fullNames4);
+
+  /* When no args, you need to specify () */
+  const fullNames5 = names.map(() => 'Some Lannister...');
+  console.log('fullNames5: ',fullNames5);
+
+</script>
+</body>
+</html>

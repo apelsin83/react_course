@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Destructuring Arrays</title>
+</head>
+<body>
+<script>
+
+  const details = ['Jaime Lannister', 123, 'gameofthrones.com'];
+  /* The long way to extract data from an array...*/
+  // const name    = details[0];
+  // const id      = details[1];
+  // const website = details[2];
+
+  // /* The shorter way... */
+  // const [name, id, website] = details;
+  // console.log(` name: ${name}\n id: ${id}\n Website: ${website}`)
+
+
+
+  // /* Split the string into an array and extract its values into an Aray */
+  // const data = 'Basketball,Sports,5089123,505,some,othe,data,is,ok...';
+  //
+  // const [itemName, category, sku, inventory] = data.split(',');
+  //
+  // console.log(` itemName: ${itemName}\n category: ${category}\n sku: ${sku}\n inventory: ${inventory}`)
+
+
+
+  /* Using the Rest operator */
+  const heros = ['Jon', 'Daenerys', 'Tyrion', 'Arya', 'Cersei'];
+
+  const [king, queen, ...players] = heros;
+
+  console.log(` king: ${king}\n queen: ${queen}\n players: ${players}`)
+
+</script>
+</body>
+</html>
