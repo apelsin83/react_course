@@ -1,0 +1,22 @@
+body,html{
+	height:100%;
+	/*	border: #00d8ff solid 2px;*/
+}
+
+.main{
+	/*	border: red solid 3px;*/
+	background: #f5f5f5;
+	height: 100%;
+		
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+.divScroll {
+            overflow:scroll;
+            height:500px;
+            width:500px;
+        }
+.app{
+	
+}
