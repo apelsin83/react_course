@@ -1,10 +1,11 @@
 {
-  "name": "react-seed-project",
+  "name": "testing-react",
   "version": "1.0.0",
-  "description": "Simple React seed project",
+  "description": "Robots Hub for testing examples...",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --inline --hot",
+    "test": "mocha './src/**/*.spec.js' --compilers js:babel-core/register",
+    "start": "webpack-dev-server --inline --hot --progress --colors",
     "slate": "rimraf node_modules && npm i"
   },
   "author": "Ajar",
@@ -19,7 +20,12 @@
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "expect": "^1.20.2",
+    "expect-jsx": "^2.6.0",
     "json-loader": "^0.5.4",
+    "mocha": "^2.5.3",
+    "react-addons-test-utils": "^15.2.0",
     "rimraf": "^2.5.2",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"

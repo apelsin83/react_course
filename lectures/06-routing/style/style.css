@@ -1,0 +1,37 @@
+@import url(https://fonts.googleapis.com/css?family=Bangers|PT+Sans:700italic,400);
+
+body,html{
+	height:100%;
+	/*	border: #00d8ff solid 2px;*/
+	font-family: 'PT Sans', sans-serif;
+	font-weight: 400;
+	font-size: 1.3rem;
+	line-height: 1.6rem;
+}
+.active-link{
+	color:red;
+}
+h1{
+	font-family: 'PT Sans', sans-serif;
+	font-weight: 700;
+	font-style: italic;
+	font-size: 2rem;
+	line-height: 1rem;
+}
+div{
+	padding: 10px;
+	border-radius: 5px;
+}
+.home,.other{
+	border:#ff1d00 1px solid
+}
+.about,.body{
+	border:blue 1px solid
+}
+.contact,.message,.other-body{
+	border:green 1px solid
+}
+.link{
+	margin-right: 10px;
+}
+

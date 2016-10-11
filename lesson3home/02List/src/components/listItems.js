@@ -8,7 +8,7 @@ export default class App extends Component {
     return (
       <div className="listcss">
         <ul>
-            {dataitems.map(item => <li key={item.id} onClick={onClickFunction}><Card dataitem={item}/></li>)}     
+            {dataitems.map(item => <li key={item.id}><Card onClickCard={onClickFunction.bind(this, item)} dataitem={item}/></li>)}     
           </ul>
 
      </div>
