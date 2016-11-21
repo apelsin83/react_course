@@ -1,0 +1,17 @@
+<div class="main">
+  <h1>This is the Users List Page</h1>
+  <table>
+      <tr class="tableHeader">
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+      </tr>
+      {{#each users_arr}}
+          <tr class="tableRow" data-id="{{this.id}}">
+            <td>{{this.first_name}}</td>
+            <td>{{this.last_name}}</td>
+            <td>{{this.email}}</td>
+          </tr>
+      {{/each}}
+  </table>
+</div>
